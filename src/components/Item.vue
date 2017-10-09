@@ -13,7 +13,7 @@
         <span class="host"> ({{ item.url | host }})</span>
       </template>
       <template v-else>
-        <router-link :to="'/item/' + item.id">{{ item.title.rendered }}</router-link>
+        <router-link :to="'/item/' + item._id">{{ item.title.rendered }}</router-link>
       </template>
     </span>
     <br>
