@@ -153,13 +153,13 @@ const store = new Vuex.Store({
     },
 
     setList: (state, { type, items }) => {
-      state.lists[type].concat(items)
+      state.lists[type] = state.lists[type].concat(items)
     },
 
     setItems: (state, { items }) => {
       items.forEach(item => {
         if (item) {
-          Vue.set(state.items, item.id, item)
+          Vue.set(state.items, item._id, item)
         }
       })
     },
