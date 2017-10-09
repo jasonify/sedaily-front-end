@@ -160,7 +160,7 @@ const store = new Vuex.Store({
       // Though, I imagine what we are aiming for is to have pagination be
       // cached and so for that I think a better approach might be a simple
       // map. I am leaning towards not caching for the time being to avoid
-      // extra complexity. 
+      // extra complexity.
       state.lists[type] = state.lists[type].concat(items)
     },
 
