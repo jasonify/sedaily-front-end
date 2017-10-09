@@ -20,7 +20,8 @@
       </div>
 
       <div class='auto-complete' v-if='suggestedTags.length > 0'>
-        <div v-for='tag in suggestedTags'>{{tag.name}}  <span class='add-tag-button' @click='addTag(tag)'>add</span></div>
+        <div v-for='tag in suggestedTags'>{{tag.name}}>
+          <span class='add-tag-button' @click='addTag(tag)'>add</span></div>
       </div>
     </div>
 
