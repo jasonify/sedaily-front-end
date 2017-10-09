@@ -23,6 +23,10 @@ const store = new Vuex.Store({
   },
 
   actions: {
+    // Pages should probably start at largest page and go down in number
+    // this way links stay around and it's easy to link toa  particular page.
+    // perhaps even including a limit and redirect to max if something
+    // too large is provided (in the url).
     fetchListData: ({ commit, dispatch, state, getters }, { type, page = 1, createdAtBefore, createdAfter, tags }) => {
       if (!createdAtBefore && !createdAfter) createdAtBefore = moment().toISOString()
       let token = getters.getToken
