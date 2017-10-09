@@ -153,6 +153,14 @@ const store = new Vuex.Store({
     },
 
     setList: (state, { type, items }) => {
+      // This is currently doing an append to the list but
+      // it should probably do a simple set like the function name
+      // suggets.
+      //
+      // Though, I imagine what we are aiming for is to have pagination be
+      // cached and so for that I think a better approach might be a simple
+      // map. I am leaning towards not caching for the time being to avoid
+      // extra complexity. 
       state.lists[type] = state.lists[type].concat(items)
     },
 
