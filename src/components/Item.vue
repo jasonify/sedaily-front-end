@@ -1,11 +1,13 @@
 <template>
   <li class="news-item">
     <span class="score">
-      <span class='arrow' v-bind:class="{ active: item.upvoted }" style='margin-left: 1px;' @click='upvote(item)'>▲</span>
+      <span class='arrow' v-bind:class="{ active: item.upvoted }"
+      style='margin-left: 1px;' @click='upvote(item)'>▲</span>
       <br>
       {{ item.score || 0 }}
       <br>
-      <span class='arrow' v-bind:class="{ active: item.downvoted }" style='margin-left: -4px;' @click='downvote(item)'>▼</span>
+      <span class='arrow' v-bind:class="{ active: item.downvoted }"
+      style='margin-left: -4px;' @click='downvote(item)'>▼</span>
     </span>
     <span class="title">
       <template v-if="item.url">
