@@ -3,8 +3,8 @@ import Vuex from 'vuex'
 import moment from 'moment'
 import axios from 'axios'
 
-let BASE_URL = 'https://software-enginnering-daily-api.herokuapp.com/api'
-// let BASE_URL = 'http://localhost:4040/api'
+// let BASE_URL = 'https://software-enginnering-daily-api.herokuapp.com/api'
+let BASE_URL = 'http://localhost:4040/api'
 
 Vue.use(Vuex)
 
@@ -81,7 +81,30 @@ const store = new Vuex.Store({
         })
     },
 
-    fetchArticle: ({commit, state}, { id }) => {
+    fetchArticle: ({commit, state, getters}, { id }) => {
+      console.log('fetch article', id)
+
+      let options = {}
+
+      let token = getters.getToken
+      if (token) {
+        options.headers = {
+          'Authorization': 'Bearer ' + token
+        }
+      }
+
+      return axios.get(`${BASE_URL}/posts/${id}`, options)
+        .then(function (response) {
+          console.log('response', response)
+          var item = response.data
+          commit('setItems', { items: [item] })
+          return {item}
+        })
+        .catch(function (error) {
+          // @TODO: Add pretty pop up here
+          console.log(error.response)
+          alert(error.response.data.message)
+        })
     },
 
     upvote: ({commit, getters, state}, { id }) => {
