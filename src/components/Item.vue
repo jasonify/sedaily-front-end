@@ -1,5 +1,8 @@
 <template>
   <li class="news-item">
+    <div>
+      <img class="hero-img":src="item.featuredImage" />
+    </div>
     <span class="score">
       <span class='arrow' v-bind:class="{ active: item.upvoted }"
       style='margin-left: 1px;' @click='upvote(item)'>▲</span>
@@ -67,6 +70,9 @@ export default {
   flex-direction column
   width 33%
 
+  .hero-img
+    max-width 90%
+    margin 10px 0
   .arrow
     color #888
     &:hover
