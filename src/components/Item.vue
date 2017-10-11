@@ -25,12 +25,12 @@
     </span>
     <br>
     <span class="meta">
-      <span v-if="item.type !== 'job'" class="by">
+      <!-- <span v-if="item.type !== 'job'" class="by">
         by <router-link :to="'/user/' + item.by">{{ item.by }}</router-link>
-      </span>
+      </span> -->
       <span class="time">
         <!-- {{ item.time | timeAgo }} ago -->
-        {{item.date}}
+        {{date}}
       </span>
       <!-- <span v-if="item.type !== 'job'" class="comments-link">
         | <router-link :to="'/item/' + item._id">{{ item.descendants }} comments</router-link>
@@ -41,10 +41,15 @@
 </template>
 
 <script>
+import moment from 'moment'
 export default {
   name: 'news-item',
   props: ['item'],
-
+  computed: {
+    date () {
+      return moment(this.item.date).format('MMM Do YY')
+    }
+  },
   methods: {
     upvote: function (item) {
       this.$store.dispatch('upvote', {
