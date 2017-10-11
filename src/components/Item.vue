@@ -62,6 +62,10 @@ export default {
   border-bottom 1px solid #eee
   position relative
   line-height 20px
+  display inline-flex
+  flex-wrap wrap
+  flex-direction column
+  width 33%
 
   .arrow
     color #888
@@ -93,4 +97,8 @@ export default {
       text-decoration underline
       &:hover
         color #ff6600
+
+@media (max-width 576px)
+  .news-item
+    width 100%
 </style>
