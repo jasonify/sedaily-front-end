@@ -1,7 +1,9 @@
 <template>
   <li class="news-item">
     <div>
+      <router-link :to="'/item/' + item._id">
       <img class="hero-img":src="item.featuredImage" />
+      </router-link>
     </div>
     <span class="score">
       <span class='arrow' v-bind:class="{ active: item.upvoted }"
